@@ -1,0 +1,15 @@
+D:\Health&Med\DOCTOR\src\DOCTOR.INFRA\bin\Debug\net8.0\DOCTOR.INFRA.deps.json
+D:\Health&Med\DOCTOR\src\DOCTOR.INFRA\bin\Debug\net8.0\DOCTOR.INFRA.dll
+D:\Health&Med\DOCTOR\src\DOCTOR.INFRA\bin\Debug\net8.0\DOCTOR.INFRA.pdb
+D:\Health&Med\DOCTOR\src\DOCTOR.INFRA\obj\Debug\net8.0\DOCTOR.INFRA.csproj.AssemblyReference.cache
+D:\Health&Med\DOCTOR\src\DOCTOR.INFRA\obj\Debug\net8.0\DOCTOR.INFRA.GeneratedMSBuildEditorConfig.editorconfig
+D:\Health&Med\DOCTOR\src\DOCTOR.INFRA\obj\Debug\net8.0\DOCTOR.INFRA.AssemblyInfoInputs.cache
+D:\Health&Med\DOCTOR\src\DOCTOR.INFRA\obj\Debug\net8.0\DOCTOR.INFRA.AssemblyInfo.cs
+D:\Health&Med\DOCTOR\src\DOCTOR.INFRA\obj\Debug\net8.0\DOCTOR.INFRA.csproj.CoreCompileInputs.cache
+D:\Health&Med\DOCTOR\src\DOCTOR.INFRA\obj\Debug\net8.0\DOCTOR.INFRA.dll
+D:\Health&Med\DOCTOR\src\DOCTOR.INFRA\obj\Debug\net8.0\refint\DOCTOR.INFRA.dll
+D:\Health&Med\DOCTOR\src\DOCTOR.INFRA\obj\Debug\net8.0\DOCTOR.INFRA.pdb
+D:\Health&Med\DOCTOR\src\DOCTOR.INFRA\obj\Debug\net8.0\ref\DOCTOR.INFRA.dll
+D:\Health&Med\DOCTOR\src\DOCTOR.INFRA\bin\Debug\net8.0\DOCTOR.DOMAIN.dll
+D:\Health&Med\DOCTOR\src\DOCTOR.INFRA\bin\Debug\net8.0\DOCTOR.DOMAIN.pdb
+D:\Health&Med\DOCTOR\src\DOCTOR.INFRA\obj\Debug\net8.0\DOCTOR.I.DFC3FA18.Up2Date

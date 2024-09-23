@@ -1,0 +1,28 @@
+[
+  {
+    "ContainingType": "DOCTOR.API.Controllers.DoctorController",
+    "Method": "GetAllAsync",
+    "RelativePath": "Doctor/getall",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DOCTOR.API.Controllers.DoctorController",
+    "Method": "VerifyDoctor",
+    "RelativePath": "Doctor/verifydoctor/{doctorId}",
+    "HttpMethod": "HEAD",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "doctorId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
