@@ -38,7 +38,6 @@ jobs:
           New-Item -Path .\.sonar\scanner -ItemType Directory
           dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
 
-          
       - name: Build and analyze
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
@@ -47,8 +46,12 @@ jobs:
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"hackathon-POSTECH_Doctor" /o:"hackathon-postech" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.vscoveragexml.reportsPaths="**/TestResults/*.xml"
           dotnet build
-          dotnet test --collect:"Code Coverage"  # Executa testes e coleta cobertura
+          dotnet test --collect:"Code Coverage" --logger "trx"  # Executa testes e coleta cobertura
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+
+      - name: List test results
+        run: |
+          Get-ChildItem -Recurse -Path .\TestResults\
 
       - name: Upload test coverage results
         uses: actions/upload-artifact@v4
