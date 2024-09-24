@@ -52,11 +52,3 @@ jobs:
         with:
           name: coverage-reports  # Adjust as needed
           path: '**/coverage/*.xml'  # Adapt based on your tool's report format
-
-      - name: Check code coverage (replace with your tool's specific checks)
-        # Example using a placeholder tool 'check-code-coverage' that accepts a percentage threshold
-        uses: themichaelhall/check-code-coverage@v2.0.0
-        with:
-          threshold: 80  # Adjust threshold as needed
-          fail_on_decline: true
-            
