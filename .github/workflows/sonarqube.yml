@@ -1,64 +1,53 @@
 name: SonarCloud
-
 on:
   push:
     branches:
       - main
   pull_request:
     types: [opened, synchronize, reopened]
-
 jobs:
   build:
-    name: Build, Analyze, and Check Code Coverage
-    runs-on: windows-latest  # Adjust as needed (e.g., ubuntu-latest)
-
+    name: Build and analyze
+    runs-on: windows-latest
     steps:
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
           java-version: 17
-          distribution: 'zulu'  # Consider alternatives for compatibility
-
+          distribution: 'zulu' # Alternative distribution options are available.
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Shallow clones disabled for better analysis
-
-      - name: Cache SonarCloud packages
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+      - name: Cache SonarCloud packages 
         uses: actions/cache@v4
         with:
           path: ~\sonar\cache
           key: ${{ runner.os }}-sonar
           restore-keys: ${{ runner.os }}-sonar
-
       - name: Cache SonarCloud scanner
-        uses: actions/cache@v4
         id: cache-sonar-scanner
+        uses: actions/cache@v4
         with:
           path: .\.sonar\scanner
           key: ${{ runner.os }}-sonar-scanner
           restore-keys: ${{ runner.os }}-sonar-scanner
-
-      - name: Install SonarCloud scanner (if cache miss)
+      - name: Install SonarCloud scanner
         if: steps.cache-sonar-scanner.outputs.cache-hit != 'true'
         shell: powershell
         run: |
           New-Item -Path .\.sonar\scanner -ItemType Directory
-          dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scannercheckout@v4  # If necessary, download the code coverage tool
-        with:
-          repository: 'YOUR_COVERAGE_TOOL_REPOSITORY'  # Replace with actual repository URL
-          ref: 'vLATEST'  # Adapt based on the tool's versioning scheme
-
-      - name: Build and analyze (replace with your build and analysis commands)
+          dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
+      - name: Build and analyze
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        shell: powershell  # Adjust shell if needed
+        shell: powershell
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"hackathon-POSTECH_Doctor" /o:"hackathon-postech" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
           dotnet build  # Replace with your build command
           dotnet test --collect="XUnit.CodeCoverage"  # Example using XUnit.CodeCoverage (adjust based on your tool)
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
-
+     
       - name: Calculateupload-artifact@v3
         with:
           name: coverage-reports  # Adjust as needed
@@ -69,11 +58,5 @@ jobs:
         uses: themichaelhall/check-code-coverage@v2.0.0
         with:
           threshold: 80  # Adjust threshold as needed
-          fail_on_decline: true  # Set to false if declines should only warn, not fail
-
-    # Optionally, add a step to display code coverage results in the GitHub UI:
-    # - name: Display code coverage
-    #   uses: EnricoMi/publish-coverage@v5
-    #   with:
-    #     coverage: 'coverage/*.xml'  # Adapt path based on your tool's report format
-    #     fail_on_ratings: false  # Set to true to fail if ratings are poor
+          fail_on_decline: true
+            
