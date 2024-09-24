@@ -38,32 +38,20 @@ jobs:
           New-Item -Path .\.sonar\scanner -ItemType Directory
           dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
 
-      - name: Install SonarCloud scanner
-        if: steps.cache-sonar-scanner.outputs.cache-hit != 'true'
-        shell: powershell
-        run: |
-          New-Item -Path ./.sonar/scanner -ItemType Directory
-          dotnet tool update dotnet-sonarscanner --tool-path ./.sonar/scanner
-      - name: Install coverlet and reportgenerator
-        run: |
-          dotnet tool install --global coverlet.console
-          dotnet tool install --global dotnet-reportgenerator-globaltool
-          echo "::add-path::$(dotnet tool list -g | Select-String -Pattern 'coverlet.console').Path"
-
+          
       - name: Build and analyze
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         shell: powershell
         run: |
-          ./.sonar/scanner/dotnet-sonarscanner begin /k:"hackathon-POSTECH_Doctor" /o:"hackathon-postech" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.vscoveragexml.reportsPaths="coverage.opencover.xml"
+          .\.sonar\scanner\dotnet-sonarscanner begin /k:"hackathon-POSTECH_Doctor" /o:"hackathon-postech" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.vscoveragexml.reportsPaths="**/TestResults/*.xml"
           dotnet build
-          dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=./TestResults/coverage.opencover.xml
-          reportgenerator -reports:./TestResults/coverage.opencover.xml -targetdir:coveragereport
-          ./.sonar/scanner/dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+          dotnet test --collect:"Code Coverage"  # Executa testes e coleta cobertura
+          .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
 
       - name: Upload test coverage results
         uses: actions/upload-artifact@v4
         with:
           name: code-coverage-report
-          path: 'TestResults/coverage.opencover.xml'
+          path: '**/TestResults/*/coverage.cobertura.xml'
