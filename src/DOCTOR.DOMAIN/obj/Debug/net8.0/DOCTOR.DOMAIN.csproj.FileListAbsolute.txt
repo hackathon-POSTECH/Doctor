@@ -9,3 +9,4 @@ D:\Health&Med\DOCTOR\src\DOCTOR.DOMAIN\obj\Debug\net8.0\DOCTOR.DOMAIN.dll
 D:\Health&Med\DOCTOR\src\DOCTOR.DOMAIN\obj\Debug\net8.0\refint\DOCTOR.DOMAIN.dll
 D:\Health&Med\DOCTOR\src\DOCTOR.DOMAIN\obj\Debug\net8.0\DOCTOR.DOMAIN.pdb
 D:\Health&Med\DOCTOR\src\DOCTOR.DOMAIN\obj\Debug\net8.0\ref\DOCTOR.DOMAIN.dll
+D:\Health&Med\DOCTOR\src\DOCTOR.DOMAIN\obj\Debug\net8.0\DOCTOR.DOMAIN.sourcelink.json

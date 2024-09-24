@@ -9,6 +9,8 @@ public class Doctor : AggregateRoot
     public string Crm { get; private set; }
     public string Cpf { get; private set; }
     public string Email { get; private set; }
+    public int WorkStartTime { get; set; }
+    public int WorkEndTime { get; set; }
 
     public static Doctor CreateDoctor(Guid userId, string Name, string Crm, string Cpf, string Email)
     {
@@ -18,7 +20,10 @@ public class Doctor : AggregateRoot
             Crm = Crm,
             Email = Email,
             UserId = userId,
-            Name = Name,    
+            Name = Name,  
+            WorkStartTime = 9,
+            WorkEndTime = 9,
+            
         };
     }
 }

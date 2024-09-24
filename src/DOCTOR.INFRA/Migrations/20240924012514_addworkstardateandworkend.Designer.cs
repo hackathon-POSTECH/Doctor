@@ -3,6 +3,7 @@ using System;
 using DOCTOR.INFRA.context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DOCTOR.INFRA.Migrations
 {
     [DbContext(typeof(DOCTORCONTEXT))]
-    partial class DOCTORCONTEXTModelSnapshot : ModelSnapshot
+    [Migration("20240924012514_addworkstardateandworkend")]
+    partial class addworkstardateandworkend
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

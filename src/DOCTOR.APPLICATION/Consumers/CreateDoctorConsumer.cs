@@ -31,21 +31,30 @@ public class CreateDoctorConsumer : BackgroundService
         var consumer = new EventingBasicConsumer(_channel);
         consumer.Received += async (s, e) => await Consumer(s, e);
         _channel.BasicQos(0, 20, false);
-        _channel.BasicConsume(EventConstants.CREATE_DOCTOR_QUEUE, false, consumer);
+        _channel.BasicConsume(EventConstants.CREATE_USER_QUEUE, false, consumer);
     }
 
     private async Task Consumer(object sender, BasicDeliverEventArgs e)
     {
         using (var scope = _serviceProvider.CreateScope())
         {
-            var body = e.Body.ToArray();
-            var message = Encoding.UTF8.GetString(body);
-            var mediator = scope.ServiceProvider.GetRequiredService<IMediator>();
+            try
+            {
+                var body = e.Body.ToArray();
+                var message = Encoding.UTF8.GetString(body);
+                var mediator = scope.ServiceProvider.GetRequiredService<IMediator>();
 
-            var createDoctorModel = JsonConvert.DeserializeObject<CreateDoctorModel>(message);
-            var command = new CreateDoctorCommand(createDoctorModel.UserId, createDoctorModel.Crm, createDoctorModel.Cpf, createDoctorModel.Name, createDoctorModel.Email);
+                var createDoctorModel = JsonConvert.DeserializeObject<CreateDoctorModel>(message);
+                if (string.IsNullOrEmpty(createDoctorModel.Crm)) throw new Exception();
+                var command = new CreateDoctorCommand(createDoctorModel.UserId, createDoctorModel.Crm, createDoctorModel.Cpf, createDoctorModel.Name, createDoctorModel.Email);
 
-            await mediator.Send(command);
+                await mediator.Send(command);
+                _channel.BasicAck(e.DeliveryTag, false);
+            }
+            catch (Exception ex)
+            {
+                _channel.BasicNack(e.DeliveryTag, false, true);
+            }
         }
     }
 

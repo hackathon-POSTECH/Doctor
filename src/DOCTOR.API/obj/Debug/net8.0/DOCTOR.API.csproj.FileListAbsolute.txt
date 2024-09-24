@@ -123,3 +123,4 @@ D:\Health&Med\DOCTOR\src\DOCTOR.API\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swag
 D:\Health&Med\DOCTOR\src\DOCTOR.API\obj\Debug\net8.0\DOCTOR.API.MvcApplicationPartsAssemblyInfo.cs
 D:\Health&Med\DOCTOR\src\DOCTOR.API\bin\Debug\net8.0\DOCTOR.API.xml
 D:\Health&Med\DOCTOR\src\DOCTOR.API\obj\Debug\net8.0\DOCTOR.API.xml
+D:\Health&Med\DOCTOR\src\DOCTOR.API\obj\Debug\net8.0\DOCTOR.API.sourcelink.json

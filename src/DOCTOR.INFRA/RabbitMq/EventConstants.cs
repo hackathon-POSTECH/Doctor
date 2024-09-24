@@ -2,5 +2,5 @@
 
 public class EventConstants
 {
-    public const string CREATE_DOCTOR_QUEUE = "CREATE_DOCTOR_QUEUE";
+    public const string CREATE_USER_QUEUE = "CREATE_USER_QUEUE";
 }

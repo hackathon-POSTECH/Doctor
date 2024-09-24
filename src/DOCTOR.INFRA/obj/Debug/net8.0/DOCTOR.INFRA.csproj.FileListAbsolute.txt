@@ -13,3 +13,4 @@ D:\Health&Med\DOCTOR\src\DOCTOR.INFRA\obj\Debug\net8.0\ref\DOCTOR.INFRA.dll
 D:\Health&Med\DOCTOR\src\DOCTOR.INFRA\bin\Debug\net8.0\DOCTOR.DOMAIN.dll
 D:\Health&Med\DOCTOR\src\DOCTOR.INFRA\bin\Debug\net8.0\DOCTOR.DOMAIN.pdb
 D:\Health&Med\DOCTOR\src\DOCTOR.INFRA\obj\Debug\net8.0\DOCTOR.I.DFC3FA18.Up2Date
+D:\Health&Med\DOCTOR\src\DOCTOR.INFRA\obj\Debug\net8.0\DOCTOR.INFRA.sourcelink.json
