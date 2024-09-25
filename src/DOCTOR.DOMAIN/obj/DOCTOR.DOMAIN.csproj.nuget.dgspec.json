@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Health&Med\\DOCTOR\\src\\DOCTOR.DOMAIN\\DOCTOR.DOMAIN.csproj": {}
+    "D:\\Hackaton\\Doctor\\src\\DOCTOR.DOMAIN\\DOCTOR.DOMAIN.csproj": {}
   },
   "projects": {
-    "D:\\Health&Med\\DOCTOR\\src\\DOCTOR.DOMAIN\\DOCTOR.DOMAIN.csproj": {
+    "D:\\Hackaton\\Doctor\\src\\DOCTOR.DOMAIN\\DOCTOR.DOMAIN.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Health&Med\\DOCTOR\\src\\DOCTOR.DOMAIN\\DOCTOR.DOMAIN.csproj",
+        "projectUniqueName": "D:\\Hackaton\\Doctor\\src\\DOCTOR.DOMAIN\\DOCTOR.DOMAIN.csproj",
         "projectName": "DOCTOR.DOMAIN",
-        "projectPath": "D:\\Health&Med\\DOCTOR\\src\\DOCTOR.DOMAIN\\DOCTOR.DOMAIN.csproj",
+        "projectPath": "D:\\Hackaton\\Doctor\\src\\DOCTOR.DOMAIN\\DOCTOR.DOMAIN.csproj",
         "packagesPath": "C:\\Users\\mathe\\.nuget\\packages\\",
-        "outputPath": "D:\\Health&Med\\DOCTOR\\src\\DOCTOR.DOMAIN\\obj\\",
+        "outputPath": "D:\\Hackaton\\Doctor\\src\\DOCTOR.DOMAIN\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "D:\\Projetos\\ShopDelivery\\ShopDelivery\\src\\SHOPDELIVERY.INFRASTRUCTURE": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

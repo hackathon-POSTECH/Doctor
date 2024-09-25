@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Nkx/ckx7GY8x+DtRlLkeg8GzkzZetbomGBt2Sd+GBl3ksFYmm8mJYn2EEfUvdFyKi77Zy6SO/y4ywIhnVgSXig==",
+  "dgSpecHash": "IE9AcMJiW/Yr3xbQ+B9HgSJYcx9SHX2+4qmEV+dzU8U/uWIr6bT3F28ZaXt7Sh8Yngj3uzbEeZ9l/s8gnwAxCQ==",
   "success": true,
-  "projectFilePath": "D:\\Health&Med\\DOCTOR\\src\\DOCTOR.API\\DOCTOR.API.csproj",
+  "projectFilePath": "D:\\Hackaton\\Doctor\\src\\DOCTOR.API\\DOCTOR.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mathe\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\mathe\\.nuget\\packages\\mediatr\\12.4.1\\mediatr.12.4.1.nupkg.sha512",

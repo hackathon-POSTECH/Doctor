@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = DOCTOR.APPLICATION
-build_property.ProjectDir = D:\Health&Med\DOCTOR\src\DOCTOR.APPLICATION\
+build_property.ProjectDir = D:\Hackaton\Doctor\src\DOCTOR.APPLICATION\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

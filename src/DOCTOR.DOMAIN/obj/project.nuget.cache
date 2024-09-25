@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "O/O90sneH3hSwdD/gywIheH/h5+nUuytGlQds0sjJYSJ+PWjjx+jWJwsM1cNmbwrenN8b/dw1PZZltxYwwpB5w==",
+  "dgSpecHash": "gMezJDrVq9NS6+ldaT1i892pykWjxgCIp6QTb7wHF255+zUc2fk+kFa3BnVLdrScsp0h+Oxty6Fz46MoeINQmw==",
   "success": true,
-  "projectFilePath": "D:\\Health&Med\\DOCTOR\\src\\DOCTOR.DOMAIN\\DOCTOR.DOMAIN.csproj",
+  "projectFilePath": "D:\\Hackaton\\Doctor\\src\\DOCTOR.DOMAIN\\DOCTOR.DOMAIN.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

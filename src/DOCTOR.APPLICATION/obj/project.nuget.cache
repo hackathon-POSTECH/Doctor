@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "HXCnoAeM1dPPR3LVhsu/+3fCbfUB9pLttIZOIDmg64gIQM5kL7X6evZEyUdA9U0e9rZ4Vu8simZxY/dY6XLlBQ==",
+  "dgSpecHash": "fKE3WqmklCIwpU66eowUIr6kLKQj1l4cFxCglR042jd+zo9cKo2AE4pUyLQMdMopy2dPGgQp8wEPatSzPGI+vA==",
   "success": true,
-  "projectFilePath": "D:\\Health&Med\\DOCTOR\\src\\DOCTOR.APPLICATION\\DOCTOR.APPLICATION.csproj",
+  "projectFilePath": "D:\\Hackaton\\Doctor\\src\\DOCTOR.APPLICATION\\DOCTOR.APPLICATION.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mathe\\.nuget\\packages\\mediatr\\12.4.1\\mediatr.12.4.1.nupkg.sha512",
     "C:\\Users\\mathe\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",

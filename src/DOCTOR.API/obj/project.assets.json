@@ -3307,11 +3307,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Health&Med\\DOCTOR\\src\\DOCTOR.API\\DOCTOR.API.csproj",
+      "projectUniqueName": "D:\\Hackaton\\Doctor\\src\\DOCTOR.API\\DOCTOR.API.csproj",
       "projectName": "DOCTOR.API",
-      "projectPath": "D:\\Health&Med\\DOCTOR\\src\\DOCTOR.API\\DOCTOR.API.csproj",
+      "projectPath": "D:\\Hackaton\\Doctor\\src\\DOCTOR.API\\DOCTOR.API.csproj",
       "packagesPath": "C:\\Users\\mathe\\.nuget\\packages\\",
-      "outputPath": "D:\\Health&Med\\DOCTOR\\src\\DOCTOR.API\\obj\\",
+      "outputPath": "D:\\Hackaton\\Doctor\\src\\DOCTOR.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -3326,15 +3326,14 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "D:\\Projetos\\ShopDelivery\\ShopDelivery\\src\\SHOPDELIVERY.INFRASTRUCTURE": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\Health&Med\\DOCTOR\\src\\DOCTOR.APPLICATION\\DOCTOR.APPLICATION.csproj": {
-              "projectPath": "D:\\Health&Med\\DOCTOR\\src\\DOCTOR.APPLICATION\\DOCTOR.APPLICATION.csproj"
+            "D:\\Hackaton\\Doctor\\src\\DOCTOR.APPLICATION\\DOCTOR.APPLICATION.csproj": {
+              "projectPath": "D:\\Hackaton\\Doctor\\src\\DOCTOR.APPLICATION\\DOCTOR.APPLICATION.csproj"
             }
           }
         }

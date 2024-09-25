@@ -10,3 +10,15 @@ D:\Health&Med\DOCTOR\src\DOCTOR.DOMAIN\obj\Debug\net8.0\DOCTOR.DOMAIN.dll
 D:\Health&Med\DOCTOR\src\DOCTOR.DOMAIN\obj\Debug\net8.0\refint\DOCTOR.DOMAIN.dll
 D:\Health&Med\DOCTOR\src\DOCTOR.DOMAIN\obj\Debug\net8.0\DOCTOR.DOMAIN.pdb
 D:\Health&Med\DOCTOR\src\DOCTOR.DOMAIN\obj\Debug\net8.0\ref\DOCTOR.DOMAIN.dll
+D:\Hackaton\Doctor\src\DOCTOR.DOMAIN\bin\Debug\net8.0\DOCTOR.DOMAIN.deps.json
+D:\Hackaton\Doctor\src\DOCTOR.DOMAIN\bin\Debug\net8.0\DOCTOR.DOMAIN.dll
+D:\Hackaton\Doctor\src\DOCTOR.DOMAIN\bin\Debug\net8.0\DOCTOR.DOMAIN.pdb
+D:\Hackaton\Doctor\src\DOCTOR.DOMAIN\obj\Debug\net8.0\DOCTOR.DOMAIN.GeneratedMSBuildEditorConfig.editorconfig
+D:\Hackaton\Doctor\src\DOCTOR.DOMAIN\obj\Debug\net8.0\DOCTOR.DOMAIN.AssemblyInfoInputs.cache
+D:\Hackaton\Doctor\src\DOCTOR.DOMAIN\obj\Debug\net8.0\DOCTOR.DOMAIN.AssemblyInfo.cs
+D:\Hackaton\Doctor\src\DOCTOR.DOMAIN\obj\Debug\net8.0\DOCTOR.DOMAIN.csproj.CoreCompileInputs.cache
+D:\Hackaton\Doctor\src\DOCTOR.DOMAIN\obj\Debug\net8.0\DOCTOR.DOMAIN.sourcelink.json
+D:\Hackaton\Doctor\src\DOCTOR.DOMAIN\obj\Debug\net8.0\DOCTOR.DOMAIN.dll
+D:\Hackaton\Doctor\src\DOCTOR.DOMAIN\obj\Debug\net8.0\refint\DOCTOR.DOMAIN.dll
+D:\Hackaton\Doctor\src\DOCTOR.DOMAIN\obj\Debug\net8.0\DOCTOR.DOMAIN.pdb
+D:\Hackaton\Doctor\src\DOCTOR.DOMAIN\obj\Debug\net8.0\ref\DOCTOR.DOMAIN.dll

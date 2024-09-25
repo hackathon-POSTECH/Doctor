@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VKVZKoeteuTDswrf0Jj7rXPWmZi/Wru4+rqkaGDmEiw8+nlOru0X3fbUY/FfOvjvF6gLsTzGG8j/eIBpza7Q5A==",
+  "dgSpecHash": "02OCivGY/EB+YEj9So8LmJ5kTZCewrb7sm20+cbYpqb94zgTnHZCFUSQg5u/PtJL5VGGPH60Rz2H4rVFNkBJPw==",
   "success": true,
-  "projectFilePath": "D:\\Health&Med\\DOCTOR\\src\\DOCTOR.INFRA\\DOCTOR.INFRA.csproj",
+  "projectFilePath": "D:\\Hackaton\\Doctor\\src\\DOCTOR.INFRA\\DOCTOR.INFRA.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mathe\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.8\\microsoft.entityframeworkcore.8.0.8.nupkg.sha512",
     "C:\\Users\\mathe\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.8\\microsoft.entityframeworkcore.abstractions.8.0.8.nupkg.sha512",
