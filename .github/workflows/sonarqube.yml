@@ -10,67 +10,43 @@ on:
 jobs:
   build:
     name: Build and analyze
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
-      # Configura o JDK 17, se necessário
-      - name: Set up JDK 17
-        uses: actions/setup-java@v4
-        with:
-          java-version: 17
-          distribution: 'zulu' # Alternative distribution options are available.
-      
       # Faz o checkout do código
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+          fetch-depth: 0  # Shallow clones should be disabled for better relevancy of analysis
 
-      # Cache para pacotes SonarCloud
-      - name: Cache SonarCloud packages
-        uses: actions/cache@v4
+      # Instalação do .NET SDK
+      - name: Set up .NET Core
+        uses: actions/setup-dotnet@v3
         with:
-          path: ~\sonar\cache
-          key: ${{ runner.os }}-sonar
-          restore-keys: ${{ runner.os }}-sonar
+          dotnet-version: '7.x.x'
 
-      # Cache para SonarCloud scanner
-      - name: Cache SonarCloud scanner
-        id: cache-sonar-scanner
-        uses: actions/cache@v4
-        with:
-          path: .\.sonar\scanner
-          key: ${{ runner.os }}-sonar-scanner
-          restore-keys: ${{ runner.os }}-sonar-scanner
+      # Restaurar dependências
+      - name: Restore dependencies
+        run: dotnet restore
 
-      # Instala o SonarCloud scanner se não estiver no cache
-      - name: Install SonarCloud scanner
-        if: steps.cache-sonar-scanner.outputs.cache-hit != 'true'
-        shell: powershell
-        run: |
-          New-Item -Path .\.sonar\scanner -ItemType Directory
-          dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
+      # Executar análise do SonarCloud
+      - name: SonarCloud Scan Begin
+        run: dotnet sonarscanner begin /k:"projeto-chave" /o:"organização-sonarcloud" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.cs.opencover.reportPaths="TestResults/coverage.opencover.xml"
 
-      # Executa a análise SonarCloud e testes com cobertura de código
-      - name: Build and analyze
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Necessário para obter informações de PR, se houver
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        shell: powershell
-        run: |
-          .\.sonar\scanner\dotnet-sonarscanner begin /k:"hackathon-POSTECH_Doctor" /o:"hackathon-postech" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.vstest.reportsPaths="**/*.trx" /d:sonar.cs.opencover.reportPaths="test/**/coverage.opencover.xml"
-          
-          # Executa os testes e gera o relatório de cobertura no formato OpenCover
-          dotnet test --collect:"XPlat Code Coverage" --results-directory ./TestResults --settings coverlet.runsettings
+      # Executar testes e coletar cobertura
+      - name: Run tests with coverage
+        run: dotnet test --collect:"XPlat Code Coverage" --settings coverlet.runsettings --results-directory ./TestResults
 
-          # Compila o projeto
-          dotnet build
+      # Compilar o projeto
+      - name: Build project
+        run: dotnet build --no-restore
 
-          # Finaliza o scanner do SonarCloud
-          .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+      # Finalizar análise do SonarCloud
+      - name: SonarCloud Scan End
+        run: dotnet sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
 
-      # Publica os relatórios de cobertura como artefatos
+      # Publicar o relatório de cobertura
       - name: Upload coverage report
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
           name: code-coverage
           path: ./TestResults/
