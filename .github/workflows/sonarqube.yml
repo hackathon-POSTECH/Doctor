@@ -1,28 +1,22 @@
-name: SonarCloud
-
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    types: [opened, synchronize, reopened]
-
 jobs:
   build:
-    name: Build and analyze
     runs-on: ubuntu-latest
 
     steps:
       # Faz o checkout do código
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Shallow clones should be disabled for better relevancy of analysis
+          fetch-depth: 0
 
       # Instalação do .NET SDK
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '7.x.x'
+
+      # Instalar o SonarScanner como uma ferramenta local
+      - name: Install SonarScanner
+        run: dotnet tool install --global dotnet-sonarscanner
 
       # Restaurar dependências
       - name: Restore dependencies
@@ -43,10 +37,3 @@ jobs:
       # Finalizar análise do SonarCloud
       - name: SonarCloud Scan End
         run: dotnet sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
-
-      # Publicar o relatório de cobertura
-      - name: Upload coverage report
-        uses: actions/upload-artifact@v3
-        with:
-          name: code-coverage
-          path: ./TestResults/
