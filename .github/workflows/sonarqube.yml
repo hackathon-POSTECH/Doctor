@@ -1,51 +1,76 @@
-name: CI Pipeline
+name: SonarCloud
 
 on:
   push:
     branches:
-      - main # Ajuste o branch conforme sua necessidade
-  pull_request:
-    branches:
       - main
+  pull_request:
+    types: [opened, synchronize, reopened]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    name: Build and analyze
+    runs-on: windows-latest
 
     steps:
-    # Checkout do código
-    - name: Check out code
-      uses: actions/checkout@v3
+      # Configura o JDK 17, se necessário
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: 17
+          distribution: 'zulu' # Alternative distribution options are available.
+      
+      # Faz o checkout do código
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
 
-    # Instalação do .NET SDK
-    - name: Set up .NET Core
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: '7.x.x' # Ajuste conforme necessário
+      # Cache para pacotes SonarCloud
+      - name: Cache SonarCloud packages
+        uses: actions/cache@v4
+        with:
+          path: ~\sonar\cache
+          key: ${{ runner.os }}-sonar
+          restore-keys: ${{ runner.os }}-sonar
 
-    # Restauração das dependências
-    - name: Install dependencies
-      run: dotnet restore
+      # Cache para SonarCloud scanner
+      - name: Cache SonarCloud scanner
+        id: cache-sonar-scanner
+        uses: actions/cache@v4
+        with:
+          path: .\.sonar\scanner
+          key: ${{ runner.os }}-sonar-scanner
+          restore-keys: ${{ runner.os }}-sonar-scanner
 
-    # Executa o SonarCloud Scanner para começar a análise
-    - name: SonarCloud Scan Begin
-      run: dotnet sonarscanner begin /k:"projeto-chave" /o:"organização-no-sonarcloud" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.cs.opencover.reportPaths="TestResults/**/*.xml"
+      # Instala o SonarCloud scanner se não estiver no cache
+      - name: Install SonarCloud scanner
+        if: steps.cache-sonar-scanner.outputs.cache-hit != 'true'
+        shell: powershell
+        run: |
+          New-Item -Path .\.sonar\scanner -ItemType Directory
+          dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
 
-    # Executa os testes e gera o relatório de cobertura
-    - name: Run tests with coverage
-      run: dotnet test --settings coverlet.runsettings --collect:"XPlat Code Coverage" --results-directory ./TestResults
+      # Executa a análise SonarCloud e testes com cobertura de código
+      - name: Build and analyze
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Necessário para obter informações de PR, se houver
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        shell: powershell
+        run: |
+          .\.sonar\scanner\dotnet-sonarscanner begin /k:"hackathon-POSTECH_Doctor" /o:"hackathon-postech" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.vstest.reportsPaths="**/*.trx" /d:sonar.cs.opencover.reportPaths="test/**/coverage.opencover.xml"
+          
+          # Executa os testes e gera o relatório de cobertura no formato OpenCover
+          dotnet test --collect:"XPlat Code Coverage" --results-directory ./TestResults --settings coverlet.runsettings
 
-    # Compila o projeto
-    - name: Build project
-      run: dotnet build --no-restore
+          # Compila o projeto
+          dotnet build
 
-    # Finaliza a análise do SonarCloud
-    - name: SonarCloud Scan End
-      run: dotnet sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
+          # Finaliza o scanner do SonarCloud
+          .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
 
-    # Publica os resultados de cobertura
-    - name: Upload coverage report
-      uses: actions/upload-artifact@v3
-      with:
-        name: code-coverage
-        path: TestResults/
+      # Publica os relatórios de cobertura como artefatos
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v4
+        with:
+          name: code-coverage
+          path: ./TestResults/
