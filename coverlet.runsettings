@@ -1,12 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RunSettings>
-  <DataCollectionRunSettings>
-    <DataCollectors>
-      <DataCollector friendlyName="XPlat Code Coverage">
-        <Configuration>
-          <Format>opencover</Format> <!-- SonarCloud requer o formato OpenCover -->
-          <Directory>./TestResults</Directory> <!-- Diretório onde os resultados serão armazenados -->
-        </Configuration>
-      </DataCollector>
-    </DataCollectors>
-  </DataCollectionRunSettings>
+  <PropertyGroup>
+    <CoverletOutput>$(SolutionDir)coverage_reports</CoverletOutput>
+    <MergeWith>$(SolutionDir)coverage.cobertura.xml</MergeWith>
+    <Exclude>MyNamespace.Internal.*</Exclude>
+    <Formatter>cobertura</Formatter>
+    <UseSourceLink>true</UseSourceLink>
+  </PropertyGroup>
 </RunSettings>

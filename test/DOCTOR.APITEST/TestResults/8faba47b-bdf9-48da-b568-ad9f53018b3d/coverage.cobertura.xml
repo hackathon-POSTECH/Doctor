@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<coverage line-rate="0.0412" branch-rate="0.125" version="1.9" timestamp="1727223325" lines-covered="16" lines-valid="388" branches-covered="2" branches-valid="16">
+<coverage line-rate="0.0412" branch-rate="0.125" version="1.9" timestamp="1727308728" lines-covered="16" lines-valid="388" branches-covered="2" branches-valid="16">
   <sources>
     <source>D:\Hackaton\Doctor\src\</source>
   </sources>
