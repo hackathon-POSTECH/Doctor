@@ -2,6 +2,8 @@ using DOCTOR.APPLICATION;
 using DOCTOR.APPLICATION.doctor.CreateDoctor;
 using DOCTOR.APPLICATION.Doctor.CreateDoctor;
 using DOCTOR.APPLICATION.Doctor.GetAllDoctors;
+using DOCTOR.APPLICATION.Doctor.Getbyid;
+using DOCTOR.APPLICATION.Doctor.GetById;
 using DOCTOR.APPLICATION.Doctor.VerifyDoctor;
 using DOCTOR.INFRA.consumers;
 using DOCTOR.INFRA.context;
@@ -33,6 +35,7 @@ builder.Services.AddHostedService<CreateDoctorConsumer>();
 builder.Services.AddScoped<IDoctorRepository, DoctorRepository>();
 
 builder.Services.AddScoped<IMediator, Mediator>();
+builder.Services.AddTransient<IRequestHandler<GetByIdQuery, GetByIdResponse>, GetByIdQueryHandler>();
 builder.Services.AddTransient<IRequestHandler<CreateDoctorCommand, CreateDoctorResponse>, CreateDoctorCommandHandler>();
 builder.Services.AddTransient<IRequestHandler<GetAllDoctorsQuery,  IEnumerable<GetAllDoctorsResponse>>, GetAllDoctorsQueryHandler>();
 builder.Services.AddTransient<IRequestHandler<VerifyDoctorQuery, ResultPattern<VerifyDoctorResponse>>, VerifyDoctorQueryHandler>();
