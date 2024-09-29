@@ -7377,23 +7377,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\mathe\\.nuget\\packages\\": {},
+    "C:\\Users\\marlo\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Hackaton\\Doctor\\test\\DOCTOR.APITEST\\DOCTOR.APITEST.csproj",
+      "projectUniqueName": "D:\\Hackathon\\Doctor\\test\\DOCTOR.APITEST\\DOCTOR.APITEST.csproj",
       "projectName": "DOCTOR.APITEST",
-      "projectPath": "D:\\Hackaton\\Doctor\\test\\DOCTOR.APITEST\\DOCTOR.APITEST.csproj",
-      "packagesPath": "C:\\Users\\mathe\\.nuget\\packages\\",
-      "outputPath": "D:\\Hackaton\\Doctor\\test\\DOCTOR.APITEST\\obj\\",
+      "projectPath": "D:\\Hackathon\\Doctor\\test\\DOCTOR.APITEST\\DOCTOR.APITEST.csproj",
+      "packagesPath": "C:\\Users\\marlo\\.nuget\\packages\\",
+      "outputPath": "D:\\Hackathon\\Doctor\\test\\DOCTOR.APITEST\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\mathe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\marlo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -7402,17 +7402,18 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\Hackaton\\Doctor\\src\\DOCTOR.API\\DOCTOR.API.csproj": {
-              "projectPath": "D:\\Hackaton\\Doctor\\src\\DOCTOR.API\\DOCTOR.API.csproj"
+            "D:\\Hackathon\\Doctor\\src\\DOCTOR.API\\DOCTOR.API.csproj": {
+              "projectPath": "D:\\Hackathon\\Doctor\\src\\DOCTOR.API\\DOCTOR.API.csproj"
             },
-            "D:\\Hackaton\\Doctor\\src\\DOCTOR.APPLICATION\\DOCTOR.APPLICATION.csproj": {
-              "projectPath": "D:\\Hackaton\\Doctor\\src\\DOCTOR.APPLICATION\\DOCTOR.APPLICATION.csproj"
+            "D:\\Hackathon\\Doctor\\src\\DOCTOR.APPLICATION\\DOCTOR.APPLICATION.csproj": {
+              "projectPath": "D:\\Hackathon\\Doctor\\src\\DOCTOR.APPLICATION\\DOCTOR.APPLICATION.csproj"
             }
           }
         }
@@ -7475,7 +7476,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

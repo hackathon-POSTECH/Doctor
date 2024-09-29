@@ -1,5 +1,4 @@
 ﻿using DOCTOR.APPLICATION.Doctor.GetAllDoctors;
-using DOCTOR.APPLICATION.Doctor.Getbyid;
 using DOCTOR.APPLICATION.Doctor.VerifyDoctor;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -33,15 +32,5 @@ public class DoctorController : ControllerBase
         var result = await _mediator.Send(query);
         if (result.Success) return Ok(result);
         return NotFound();
-    }
-
-    [HttpGet()]
-    [Route("getbyid/{doctorId}")]
-    public async Task<IActionResult> GetDoctorByIdAsync([FromRoute] Guid doctorId)
-    {
-        var query = new GetByIdQuery(doctorId);
-        var result = await _mediator.Send(query);
-        if (result == null) return NotFound();
-        return Ok(result);
     }
 }
