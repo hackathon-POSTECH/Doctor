@@ -56,7 +56,7 @@ Once a doctor registers or updates their availability, notifications are sent th
 ## Setup & Installation
 
 ### Prerequisites
-- .NET 6 SDK
+- .NET 8 SDK
 - Docker & Docker Compose
 - RabbitMQ
 - PostgreSQL
